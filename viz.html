@@ -42,11 +42,11 @@
         <h1 class="mt-5">Please select a news story</h1>
 
         <div class="input-group">
-            <select class="custom-select" id="storyPicker" aria-label="Story Picker">
+            <select class="custom-select" id="storyPicker" aria-label="Story Picker" onchange="changeView()">
                 <option selected>Choose a story</option>
-                <option value="1">Jamal Khashoggi</option>
-                <option value="2">Hurrican Michael</option>
-                <option value="3">Canada Marijuana Legalization</option>
+                <option value="#khash">Jamal Khashoggi</option>
+                <option value="#hurr">Hurricane Michael</option>
+                <option value="#canada">Canada Marijuana Legalization</option>
             </select>
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go</button>
@@ -58,12 +58,27 @@
     <br />
     <br />
 
-    <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1wY5CWK1ZX2lCYidmiUX54OxDA4PaaXoscyesot0ZaaA&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+    <iframe id="khash" src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1wY5CWK1ZX2lCYidmiUX54OxDA4PaaXoscyesot0ZaaA&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='0' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+    <iframe id="hurr" src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1XVCA8EMIjnIsUL5tK0A_VufRLSTazjrYAEnqqHNizp0&font=Default&lang=en&initial_zoom=1&height=650' width='100%' height='0' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+    <iframe id="canada" src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1oVpw6Os7hZiIFDZ4e6N8vZMmZ7QdoOJggGUIPe7nUYQ&font=Default&lang=en&initial_zoom=1&height=650' width='100%' height='0' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+
     <footer class="footer">
         <div class="container">
-            <span class="text-muted">{tshang3, dfridkin3} @gatech.edu </span>
+            <span class="text-muted">{tshang3, dfridkin3} @gatech.edu. Special thanks to NewsAPI.org, twitterscraper (github.com/taspinar/twitterscraper), and timeline.knightlab.com</span>
         </div>
     </footer>
 
+
 </body>
 </html>
+
+<script>
+    function changeView() {
+        $("#khash").prop("height", 0);
+        $("#hurr").prop("height", 0);
+        $("#canada").prop("height", 0);
+        value = $("#storyPicker").val();
+        $(value).prop("height", 650);
+    }
+
+</script>
